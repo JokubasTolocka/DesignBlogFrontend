@@ -18,10 +18,17 @@ const ImagesGrid = ({ images }) => {
         columnClassName={styles.masonryGridColumn}
       >
         {images.map((image) => (
-          <img key={image.id} src={image.compressedUrl} alt={image.id} />
+          <img key={image.id} src={image.normalUrl} alt={image.id} />
         ))}
       </Masonry>
-      <div className={styles.shadowDiv}></div>
+      <div className={styles.shadowDiv}>
+        <div className={styles.contacts}>
+          <h4 className={styles.contactMe}>Contact Me</h4>
+          <a href="mailto:jokubas.tj@gmail.com" className={styles.email}>
+            jokubas.tj@gmail.com
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

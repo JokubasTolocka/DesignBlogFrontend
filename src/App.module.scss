@@ -1,3 +1,5 @@
+@import "./base.scss";
+
 .root {
   display: flex;
   flex-direction: column;
@@ -7,5 +9,11 @@
 .underHeader {
   display: flex;
   width: 100vw;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 32px);
+  margin-top: 32px;
+
+  @include tabletDown {
+    margin-top: 0;
+    min-height: calc(100vh - 64px);
+  }
 }

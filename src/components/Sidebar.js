@@ -12,15 +12,6 @@ const Sidebar = () => {
     <div className={styles.root}>
       <div className={styles.links}>
         <Link
-          to="/design"
-          className={cls(
-            styles.link,
-            isActive("/design", location.pathname) && styles.active
-          )}
-        >
-          Design
-        </Link>
-        <Link
           to="/photography"
           className={cls(
             styles.link,
@@ -28,6 +19,15 @@ const Sidebar = () => {
           )}
         >
           Photography
+        </Link>
+        <Link
+          to="/design"
+          className={cls(
+            styles.link,
+            isActive("/design", location.pathname) && styles.active
+          )}
+        >
+          Design
         </Link>
       </div>
       <div className={styles.contacts}>
