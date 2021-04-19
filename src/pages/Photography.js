@@ -3,11 +3,10 @@ import { useQuery } from "@apollo/client";
 import { GET_PHOTOGRAPHY_IMAGES } from "../queries";
 import Loading from "../components/Loading";
 import styles from "./Photography.module.scss";
+import ImagesGrid from "../components/ImagesGrid";
 
 const Photography = () => {
   const { data, error, loading } = useQuery(GET_PHOTOGRAPHY_IMAGES);
-
-  console.log(data);
 
   if (loading) {
     return (
@@ -25,7 +24,7 @@ const Photography = () => {
     );
   }
 
-  return <div className={styles.root}></div>;
+  return <ImagesGrid images={data?.photographyImages} />;
 };
 
 export default Photography;

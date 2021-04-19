@@ -10,24 +10,32 @@ const Sidebar = () => {
 
   return (
     <div className={styles.root}>
-      <Link
-        to="/design"
-        className={cls(
-          styles.link,
-          isActive("/design", location.pathname) && styles.active
-        )}
-      >
-        Design
-      </Link>
-      <Link
-        to="/photography"
-        className={cls(
-          styles.link,
-          isActive("/photography", location.pathname) && styles.active
-        )}
-      >
-        Photography
-      </Link>
+      <div className={styles.links}>
+        <Link
+          to="/design"
+          className={cls(
+            styles.link,
+            isActive("/design", location.pathname) && styles.active
+          )}
+        >
+          Design
+        </Link>
+        <Link
+          to="/photography"
+          className={cls(
+            styles.link,
+            isActive("/photography", location.pathname) && styles.active
+          )}
+        >
+          Photography
+        </Link>
+      </div>
+      <div className={styles.contacts}>
+        <h4 className={styles.contactMe}>Contact Me</h4>
+        <a href="mailto:jokubas.tj@gmail.com" className={styles.email}>
+          jokubas.tj@gmail.com
+        </a>
+      </div>
     </div>
   );
 };
