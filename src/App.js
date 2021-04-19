@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { Switch, Route, useHistory } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Photography from "./pages/Photography";
+import styles from "./App.module.scss";
 
-function App() {
+const App = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      history.push("/photography");
+    }
+  }, [history]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.root}>
+      {/* <Header /> */}
+      <div className={styles.underHeader}>
+        <Sidebar />
+        <>
+          <Switch>
+            <Route path="/design"></Route>
+            <Route path="/photography">
+              <Photography />
+            </Route>
+          </Switch>
+        </>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
