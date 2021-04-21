@@ -6,6 +6,7 @@ export const GET_DESIGN_IMAGES = gql`
       id
       normalUrl
       compressedUrl
+      description
     }
   }
 `;
@@ -16,6 +17,7 @@ export const GET_PHOTOGRAPHY_IMAGES = gql`
       id
       normalUrl
       compressedUrl
+      description
     }
   }
 `;

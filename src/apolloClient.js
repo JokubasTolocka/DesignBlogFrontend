@@ -18,7 +18,7 @@ const retryLink = new RetryLink({
   },
 });
 
-const httpLink = new HttpLink({ uri: "http://localhost:8000/graphql" });
+const httpLink = new HttpLink({ uri: process.env.REACT_APP_BACKEND_URL });
 
 const link = ApolloLink.from([retryLink, httpLink]);
 

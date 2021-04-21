@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Masonry from "react-masonry-css";
+import Modal from "./Modal";
+import Footer from "./Footer";
 import styles from "./ImagesGrid.module.scss";
 
 const breakpointColumns = {
@@ -10,6 +12,9 @@ const breakpointColumns = {
 };
 
 const ImagesGrid = ({ images }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [image, setImage] = useState({});
+
   return (
     <div className={styles.root}>
       <Masonry
@@ -18,17 +23,23 @@ const ImagesGrid = ({ images }) => {
         columnClassName={styles.masonryGridColumn}
       >
         {images.map((image) => (
-          <img key={image.id} src={image.normalUrl} alt={image.id} />
+          <img
+            key={image.id}
+            src={image.compressedUrl}
+            alt={image.id}
+            onClick={() => {
+              setIsOpen(true);
+              setImage(image);
+            }}
+          />
         ))}
       </Masonry>
-      <div className={styles.shadowDiv}>
-        <div className={styles.contacts}>
-          <h4 className={styles.contactMe}>Contact Me</h4>
-          <a href="mailto:jokubas.tj@gmail.com" className={styles.email}>
-            jokubas.tj@gmail.com
-          </a>
-        </div>
-      </div>
+      <Footer />
+      <Modal
+        onClose={() => setIsOpen(false)}
+        isOpen={modalIsOpen}
+        image={image}
+      />
     </div>
   );
 };

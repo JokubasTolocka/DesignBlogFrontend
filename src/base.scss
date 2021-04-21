@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin phoneDown {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
