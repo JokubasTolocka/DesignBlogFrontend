@@ -3,6 +3,7 @@ import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Photography from "./pages/Photography";
+import Design from "./pages/Design";
 import Helmet from "./components/Helmet";
 import styles from "./App.module.scss";
 
@@ -23,7 +24,10 @@ const App = () => {
         <Sidebar />
         <>
           <Switch>
-            <Route path="/design"></Route>
+            <Route path="/design">
+              <Helmet title="Design" />
+              <Design />
+            </Route>
             <Route path="/photography">
               <Helmet title="Photography" />
               <Photography />
