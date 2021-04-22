@@ -11,10 +11,10 @@ const Header = () => {
     <div className={styles.root}>
       <div className={styles.links}>
         <Link
-          to="/photography"
+          to="/"
           className={cls(
             styles.link,
-            isActive("/photography", location.pathname) && styles.active
+            isActive("/", location.pathname) && styles.active
           )}
         >
           Photography
